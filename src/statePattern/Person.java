@@ -1,15 +1,13 @@
 package statePattern;
 
-import java.util.List;
-
 public class Person {
 	private MaritalStatus status;
 	private String name;
-	private List<String> history;
 	
-	public void setStatus(String name) {
+	public Person(String name) {
 		this.status = new Single();
 		this.name = name;
+		System.out.println(name+ " is born Single");
 	}
 	
 	public MaritalStatus getStatus() {
@@ -24,5 +22,19 @@ public class Person {
 		return this.name;
 	}
 	
+	public void getMarried() {
+		this.getStatus().getMarried(this);
+	}
 	
+	public void getDivorced() {
+		this.getStatus().getDivorced(this);
+	}
+
+	public void getWidowed() {
+		this.getStatus().getWidowed(this);
+	}
+
+	public void printStatus() {
+		System.out.println(this.getName()+" is currently "+ this.getStatus().toString());
+	}
 }

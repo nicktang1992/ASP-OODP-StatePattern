@@ -1,23 +1,26 @@
 package statePattern;
 
-import java.util.Date;
-
 public class Married implements MaritalStatus {
-	Person spouse;
+
 	@Override
-	public void getMarried(Person person,Person spouse) {
-		person.setStatus(new Divorced());
-		spouse.setStatus(new Divorced());
+	public void getMarried(Person person) {
+		System.out.println(person.getName()+" is already married. He can't marry again");
+		
 	}
 	@Override
-	public void spouseDied(Person person) {
-		// TODO Auto-generated method stub
-		
+	public void getWidowed(Person person) {
+		person.setStatus(new Widowed());
+		System.out.println(person.getName()+" gets Widowed");
 	}
 	@Override
 	public void getDivorced(Person person) {
-		// TODO Auto-generated method stub
-		
+		person.setStatus(new Divorced());
+		System.out.println(person.getName()+" gets Divorced");
+	}
+	
+	@Override
+	public String toString() {
+		return "Married";
 	}
 	
 }
